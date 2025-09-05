@@ -5,3 +5,7 @@ export type TabBarProps = {
     onChange: (tab: TabBarKey) => void
     onMenuToggle?: (isOpen: boolean) => void
 }
+
+export type BetaProps = {
+    onMenuToggle?: (isOpen: boolean) => void
+}

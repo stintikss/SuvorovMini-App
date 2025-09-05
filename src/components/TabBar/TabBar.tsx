@@ -12,7 +12,7 @@ const menu: { key: TabBarKey, label: string }[] = [
     { key: 'Keys', label: 'Кейсы' },
     { key: 'Project', label: 'Проекты' },
     { key: 'Social', label: 'Соц сети' },
-    { key: 'Social', label: 'Настройки' },
+    { key: 'Settings', label: 'Настройки' },
 ]
 
 export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
@@ -25,7 +25,7 @@ export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
     }
 
     return (
-        <div className="w-full p-4">
+        <div className="w-full px-4">
             <div className="flex justify-center
                 bg-indigo-100/70 px-1.5 py-1 backdrop-blur-2xl rounded-xl max-h-13
             ">

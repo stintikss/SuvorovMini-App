@@ -3,6 +3,7 @@ import type { TabBarProps } from "../../types/types";
 import { motion } from "framer-motion";
 import { AnimationHeadingName, wordVariants, spaceVariants, borderTextTop } from "./Animation/Animation";
 import { useEffect, useState } from "react";
+import { Beta } from "../../components/Beta/Beta";
 
 function Home({ activeTab, onChange }: TabBarProps) {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -39,7 +40,7 @@ function Home({ activeTab, onChange }: TabBarProps) {
         >
             <motion.div 
                 className="flex flex-col items-center h-50 max-h-100 w-screen max-w-95
-                    p-7 text-stone-50 tracking-[0.2rem] font-medium text-3xl
+                    p-7 text-stone-50 tracking-[0.2rem] font-medium text-3xl flex-1
                 "
                 style={{ fontFamily: 'Nata Sans, sans-serif' }}
             >
@@ -88,7 +89,7 @@ function Home({ activeTab, onChange }: TabBarProps) {
                     max-w-81 mx-auto md:max-w-100 relative
                     ${sizeMenuSettings ? 'max-h-40' : 'max-h-50'}
                 `}
-                animate={{y: sizeMenuSettings ? -190 : 0, opacity: 1} 
+                animate={{y: sizeMenuSettings ? -175 : 0, opacity: 1} 
                 }
                 transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
@@ -107,18 +108,25 @@ function Home({ activeTab, onChange }: TabBarProps) {
                     Открой для себя возможности приложения.<br />
                     <span className="text-indigo-300">Воспользуйся панелью снизу</span> для навигации.
                 </p>
-                {sizeDevice && menuOpen && (
+                {sizeMenuSettings && (
                     <div className="h-px w-full bg-gray-200/60 absolute left-0 -bottom-2" />  
                 )}
             </motion.div>
             
             
-            <motion.div>
+            <motion.div
+                className="flex flex-col gap-1 flex-1 justify-end py-2"
+            >
                 <TabBar 
                     activeTab={activeTab} 
                     onChange={onChange} 
                     onMenuToggle={handleMenuToggle}
                 />
+                <div
+                    className={`w-full flex px-8 ${sizeDevice ? 'justify-end' : 'justify-center'}`}
+                >
+                    <Beta />
+                </div>
             </motion.div>
 
         </div>
