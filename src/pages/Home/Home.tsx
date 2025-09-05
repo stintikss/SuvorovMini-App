@@ -73,12 +73,12 @@ function Home({ activeTab, onChange }: TabBarProps) {
             </motion.div>
             
             <motion.div 
-                className="mt-8 mb-6 px-6 py-4 bg-white/10 rounded-xl shadow-lg 
+                className={`mt-8 mb-6 px-6 py-4 bg-white/10 rounded-xl shadow-lg 
                     flex flex-1 flex-col items-center justify-center
-                    max-w-81 mx-auto max-h-50 md:max-w-100
-                "
+                    max-w-81 mx-auto max-h-50 md:max-w-100 relative
+                `}
                 animate={sizeDevice === true 
-                    && {y: menuOpen ? -160 : 0, opacity: 1} 
+                    && {y: menuOpen ? -170 : 0, opacity: 1} 
                 }
                 transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
@@ -89,6 +89,9 @@ function Home({ activeTab, onChange }: TabBarProps) {
                     Открой для себя возможности приложения.<br />
                     <span className="text-indigo-300">Воспользуйся панелью снизу</span> для навигации.
                 </p>
+                {sizeDevice && menuOpen && (
+                    <div className="h-px w-full bg-gray-200/60 absolute left-0 -bottom-2" />  
+                )}
             </motion.div>
             
             
