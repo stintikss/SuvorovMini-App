@@ -1,6 +1,6 @@
 import { TabBar } from "../../components/TabBar/TabBar";
 import type { TabBarProps } from "../../types/types";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimationHeadingName, wordVariants, spaceVariants } from "./Animation/Animation";
 
 function Home({ activeTab, onChange }: TabBarProps) {
