@@ -9,6 +9,8 @@ function Home({ activeTab, onChange }: TabBarProps) {
     const [sizeDevice] = useState<boolean>(() => {
         return window.innerWidth >= 768 ? false : true
     });
+    const [sizeMenuSettings, setSizeMenuSettings] = useState<boolean>(false)
+
 
     useEffect(() => {
         if(sizeDevice) {
@@ -17,6 +19,14 @@ function Home({ activeTab, onChange }: TabBarProps) {
             console.log('У вас ПК')
         }
     }, [sizeDevice]);
+
+    useEffect(() => {
+        if(sizeDevice && menuOpen) {
+            setSizeMenuSettings(true)
+        } else {
+            setSizeMenuSettings(false)
+        }
+    })
 
     const handleMenuToggle = (isOpen: boolean) => {
         setMenuOpen(isOpen);
@@ -75,17 +85,25 @@ function Home({ activeTab, onChange }: TabBarProps) {
             <motion.div 
                 className={`mt-8 mb-6 px-6 py-4 bg-white/10 rounded-xl shadow-lg 
                     flex flex-1 flex-col items-center justify-center
-                    max-w-81 mx-auto max-h-50 md:max-w-100 relative
+                    max-w-81 mx-auto md:max-w-100 relative
+                    ${sizeMenuSettings ? 'max-h-40' : 'max-h-50'}
                 `}
-                animate={sizeDevice === true 
-                    && {y: menuOpen ? -170 : 0, opacity: 1} 
+                animate={{y: sizeMenuSettings ? -190 : 0, opacity: 1} 
                 }
                 transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
-                <h1 className="text-2xl md:text-3xl font-bold text-indigo-200 mb-2 text-center drop-shadow-lg">
+                <h1 className={`md:text-3xl font-bold text-indigo-200 
+                    mb-2 text-center drop-shadow-lg
+                    ${sizeMenuSettings ? 'text-lg' : 'text-2xl'}
+                    `}
+                >
                     Добро пожаловать в <span className="text-indigo-400">Mini-App</span>!
                 </h1>
-                <p className="text-base md:text-lg text-stone-100 text-center font-medium tracking-wide">
+                <p className={`text-base md:text-lg 
+                    text-stone-100 text-center font-medium tracking-wide
+                    ${sizeMenuSettings ? 'text-sm' : 'text-base'}
+                    `}
+                >
                     Открой для себя возможности приложения.<br />
                     <span className="text-indigo-300">Воспользуйся панелью снизу</span> для навигации.
                 </p>

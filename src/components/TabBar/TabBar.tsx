@@ -7,11 +7,12 @@ const tabs: {key: TabBarKey, label: string}[] = [
 ]
 
 const menu: { key: TabBarKey, label: string }[] = [
-    { key: 'tra', label: 'Mini App' },
-    { key: 'tra', label: 'Отзывы' },
-    { key: 'tra', label: 'Кейсы' },
-    { key: 'tra', label: 'Проекты' },
-    { key: 'tra', label: 'Соц сети' },
+    { key: 'MiniApp', label: 'Mini App' },
+    { key: 'Reviews', label: 'Отзывы' },
+    { key: 'Keys', label: 'Кейсы' },
+    { key: 'Project', label: 'Проекты' },
+    { key: 'Social', label: 'Соц сети' },
+    { key: 'Social', label: 'Настройки' },
 ]
 
 export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
