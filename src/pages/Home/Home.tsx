@@ -86,23 +86,17 @@ function Home({ activeTab, onChange }: TabBarProps) {
             <motion.div 
                 className={`mt-8 mb-6 px-6 py-4 bg-white/10 rounded-xl shadow-lg 
                     flex flex-1 flex-col items-center justify-center
-                    max-w-81 mx-auto md:max-w-100 relative
-                    ${sizeMenuSettings ? 'max-h-40' : 'max-h-50'}
+                    max-w-81 mx-auto md:max-w-100 relative max-h-50
                 `}
-                animate={{y: sizeMenuSettings ? -175 : 0, opacity: 1} 
-                }
-                transition={{ type: "spring", stiffness: 120, damping: 18 }}
             >
                 <h1 className={`md:text-3xl font-bold text-indigo-200 
-                    mb-2 text-center drop-shadow-lg
-                    ${sizeMenuSettings ? 'text-lg' : 'text-2xl'}
+                    mb-2 text-center drop-shadow-lg text-2xl
                     `}
                 >
                     Добро пожаловать в <span className="text-indigo-400">Mini-App</span>!
                 </h1>
                 <p className={`text-base md:text-lg 
                     text-stone-100 text-center font-medium tracking-wide
-                    ${sizeMenuSettings ? 'text-sm' : 'text-base'}
                     `}
                 >
                     Открой для себя возможности приложения.<br />
