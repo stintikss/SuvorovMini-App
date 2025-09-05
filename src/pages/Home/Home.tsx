@@ -30,7 +30,7 @@ function Home({ activeTab, onChange }: TabBarProps) {
                 <motion.span
                     variants={wordVariants}
                 >
-                    Frontend
+                    Frontendd
                 </motion.span>
             </motion.div>
             
