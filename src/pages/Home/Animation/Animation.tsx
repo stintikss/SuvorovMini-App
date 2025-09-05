@@ -21,7 +21,7 @@ export const spaceVariants: Variants = {
         width: "1rem", 
         opacity: 1,
         transition: { 
-            delay: 1,
+            delay: 2,
             duration: 0.5,
             ease: "easeOut"
         }

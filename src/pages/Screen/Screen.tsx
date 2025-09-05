@@ -41,7 +41,7 @@ function Screen() {
     return (
         <div
             className="w-screen max-w-screen h-screen max-h-screen flex items-center justify-center
-                bg-gradient-to-br from-[#434656] via-[#3F4C8E] to-[#2A2F4A]
+                bg-gradient-to-br from-[#1a2337] via-[#283761] to-[#4d5985]
             "
         >
             <AnimatePresence>
