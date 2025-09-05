@@ -27,3 +27,27 @@ export const spaceVariants: Variants = {
         }
     }
 }
+
+export const borderTextTop: Variants = {
+    hidden: { 
+        opacity: 0, 
+        background: "linear-gradient(to right, rgba(99,102,241,0), rgba(99,102,241,1) 50%, rgba(99,102,241,0) 100%)",
+        borderRadius: "9999px"
+    },
+    animate: {
+        opacity: [0.3, 0.75, 1],
+        background: [
+            "linear-gradient(to right, rgba(99,102,241,0), rgba(99,102,241,0.7) 50%, rgba(99,102,241,0) 100%)",
+            "linear-gradient(to right, rgba(99,102,241,0), rgba(99,102,241,1) 50%, rgba(99,102,241,0) 100%)",
+            "linear-gradient(to right, rgba(99,102,241,0), rgba(99,102,241,0.7) 50%, rgba(99,102,241,0) 100%)"
+        ],
+        borderRadius: "9999px",
+        transition: {
+            duration: 1,
+            times: [0, 0.5, 1],
+            repeat: Infinity,
+            repeatType: 'reverse',
+            ease: 'easeInOut'
+        }
+    }
+}

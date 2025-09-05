@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const letters = "DevTrip Frontend".split("");
+const letters = "DevTrip".split("");
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -57,7 +57,7 @@ function Screen() {
                             <motion.span
                                 key={idx}
                                 variants={letterVariants}
-                                className="text-5xl md:text-7xl font-extrabold tracking-wide"
+                                className="text-7xl md:text-7xl font-extrabold tracking-wide"
                                 style={{
                                     fontFamily: "'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif",
                                     color: "white",
