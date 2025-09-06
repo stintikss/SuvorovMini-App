@@ -3,7 +3,6 @@ import type { TabBarProps } from "../../types/types";
 import { motion } from "framer-motion";
 import { Beta } from "../../components/Beta/Beta";
 import { UserData } from "./User/User";
-import { useEffect } from "react";
 
 function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
 
