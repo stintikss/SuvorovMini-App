@@ -3,7 +3,7 @@ import Screen from "../../../pages/Screen/Screen";
 import { useState, useEffect } from "react";
 
 export function ProccesorRouter() {
-    const [showScreen, setShowScreen] = useState<boolean>(false);
+    const [showScreen, setShowScreen] = useState<boolean>(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {

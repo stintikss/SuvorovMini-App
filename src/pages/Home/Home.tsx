@@ -68,6 +68,8 @@ function Home({ activeTab, onChange, sizeDevice }: TabBarProps) {
                 <motion.div 
                     className="border-t-2 border-indigo-400/78 w-20/21 mx-auto"
                     variants={Anim.borderTextBottom}
+                    initial='hidden'
+                    animate='animate'
                 />
                 
             </motion.div>

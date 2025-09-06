@@ -2,11 +2,11 @@ import { TabBar } from "../../components/TabBar/TabBar";
 import type { TabBarProps } from "../../types/types";
 import { motion } from "framer-motion";
 import { Beta } from "../../components/Beta/Beta";
-import { UserData } from "./User/User";
+import { UserData } from "../../components/User/User";
 import { useState, useEffect } from "react";
 
 function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
-    const [userLoading, setUserLoading] = useState<boolean>(true);
+    const [userLoading, setUserLoading] = useState<boolean>(false);
 
     const handleLoadingChange = (loading: boolean) => {
         setUserLoading(loading);
@@ -22,13 +22,19 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                 bg-gradient-to-br from-[#1a2337] via-[#283761] to-[#4d5985]
             "
         >
-            <div className="flex-1 flex flex-col justify-center px-4">
+            <div className={`flex justify-start
+                px-4 h-13 items-end w-full mb-10
+                `}
+            >
                 <UserData onLoadingChange={handleLoadingChange} />
-                
+            </div>
+        
+            <div className="flex flex-1">
+                sdfdsfsdfsdf
             </div>
 
             <motion.div
-                className="flex flex-col gap-1 flex-1 justify-end py-2"
+                className="flex flex-col gap-1 justify-end py-2"
             >
                 <TabBar 
                     activeTab={activeTab} 
