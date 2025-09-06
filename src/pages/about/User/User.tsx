@@ -1,63 +1,24 @@
 import { useEffect, useState } from "react";
 
-type TgUser = {
-    id: number;
-    first_name: string;
-    last_name?: string;
-    username?: string;
-    photo_url?: string;
-};
-
-declare global {
-    interface Window {
-        Telegram?: any;
-        WebApp?: any;
-    }
-}
-
 export function UserData() {
-    const [user, setUser] = useState<TgUser | null>(null);
+    const [userName, setUserName] = useState<string>('');
 
     useEffect(() => {
-        // Попытка получить данные пользователя из Telegram WebApp SDK
-        let tgUser: TgUser | null = null;
-
-        // Проверяем наличие Telegram WebApp SDK
-        if (window?.Telegram?.WebApp?.initDataUnsafe?.user) {
-            tgUser = window.Telegram.WebApp.initDataUnsafe.user;
-        } else if (window?.WebApp?.initDataUnsafe?.user) {
-            tgUser = window.WebApp.initDataUnsafe.user;
-        }
-
-        if (tgUser) {
-            setUser(tgUser);
+        const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+        if (user) {
+            const name = user.first_name + (user.last_name ? ` ${user.last_name}` : '');
+            setUserName(name);
         }
     }, []);
 
-    if (!user) {
-        return (
-            <div className="flex flex-col items-center justify-center py-4">
-                <span className="text-stone-200 text-lg">Загрузка данных пользователя...</span>
-            </div>
-        );
+    if (!userName) {
+        return null; // или loading state
     }
 
     return (
-        <div className="flex flex-col items-center justify-center py-4">
-            {user.photo_url && (
-                <img
-                    src={user.photo_url}
-                    alt="User avatar"
-                    className="w-16 h-16 rounded-full mb-2 border-2 border-indigo-400/80 shadow"
-                />
-            )}
-            <span className="text-stone-100 text-xl font-semibold">
-                {user.first_name} {user.last_name}
-            </span>
-            {user.username && (
-                <span className="text-indigo-300 text-sm">@{user.username}</span>
-            )}
-            <span className="text-stone-400 text-xs mt-1">ID: {user.id}</span>
+        <div className="px-4 py-2 bg-white/10 rounded-full">
+            <span className="text-stone-100">👋 Привет, </span>
+            <span className="text-indigo-300 font-medium">{userName}</span>
         </div>
     );
 }
