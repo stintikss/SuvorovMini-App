@@ -7,9 +7,9 @@ export function useDevice() {
 
     useEffect(() => {
         if (sizeDevice) {
-            console.log('PC user')
-        } else {
             console.log('Phone user')
+        } else {
+            console.log('PC user')
         }
     }, [sizeDevice])
 

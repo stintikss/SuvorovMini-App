@@ -3,8 +3,18 @@ import type { TabBarProps } from "../../types/types";
 import { motion } from "framer-motion";
 import { Beta } from "../../components/Beta/Beta";
 import { UserData } from "./User/User";
+import { useState, useEffect } from "react";
 
 function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
+    const [userLoading, setUserLoading] = useState<boolean>(true);
+
+    const handleLoadingChange = (loading: boolean) => {
+        setUserLoading(loading);
+    };
+
+    useEffect(() => {
+        console.log(userLoading);
+    }, [userLoading]);
 
     return (
         <div
@@ -13,7 +23,8 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
             "
         >
             <div className="flex-1 flex flex-col justify-center px-4">
-                <UserData />
+                <UserData onLoadingChange={handleLoadingChange} />
+                
             </div>
 
             <motion.div
