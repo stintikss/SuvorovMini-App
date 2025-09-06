@@ -12,10 +12,13 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                 bg-gradient-to-br from-[#1a2337] via-[#283761] to-[#4d5985]
             "
         >
+            <div className="flex-1 flex flex-col justify-center px-4">
+                <UserData />
+            </div>
+
             <motion.div
                 className="flex flex-col gap-1 flex-1 justify-end py-2"
             >
-                <UserData />
                 <TabBar 
                     activeTab={activeTab} 
                     onChange={onChange} 
