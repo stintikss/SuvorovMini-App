@@ -5,15 +5,12 @@ import * as Anim from './Animation/Animation'
 import { useEffect, useState } from "react";
 import { Beta } from "../../components/Beta/Beta";
 
-function Home({ activeTab, onChange }: TabBarProps) {
+function Home({ activeTab, onChange, sizeDevice }: TabBarProps) {
     const [menuOpen, setMenuOpen] = useState<boolean>(false);
-    const [sizeDevice] = useState<boolean>(() => {
-        return window.innerWidth >= 768 ? false : true
-    });
     const [sizeMenuSettings, setSizeMenuSettings] = useState<boolean>(false)
 
     useEffect(() => {
-        if(sizeDevice && menuOpen) {
+        if(sizeDevice?.device && menuOpen) {
             setSizeMenuSettings(true)
         } else {
             setSizeMenuSettings(false)
@@ -114,7 +111,7 @@ function Home({ activeTab, onChange }: TabBarProps) {
                     onMenuToggle={handleMenuToggle}
                 />
                 <div
-                    className={`w-full flex px-8 ${sizeDevice ? 'justify-end' : 'justify-center'}`}
+                    className={`w-full flex px-8 ${sizeDevice?.device ? 'justify-end' : 'justify-center'}`}
                 >
                     <Beta />
                 </div>

@@ -5,7 +5,7 @@ export const TabBar: Variants = {
     animate: {
         transition: {
             staggerChildren: 0.13,
-            delayChildren: 0.1
+            delayChildren: 0.37
         }
     }
 }
