@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import type { TelegramUser, UserDataProps } from '../../types/types'
 import { motion } from "framer-motion";
-import * as Anim from './Animation/Animation'
 
 function generateRandomId(): number {
     return Math.floor(100000 + Math.random() * 900000);

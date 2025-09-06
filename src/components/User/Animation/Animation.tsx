@@ -1,4 +1,4 @@
-import { animate, type Variants } from "framer-motion";
+import { type Variants } from "framer-motion";
 
 export const AvatarUser: Variants = {
     hidden: {},
