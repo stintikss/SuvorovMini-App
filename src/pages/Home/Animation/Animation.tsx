@@ -1,4 +1,4 @@
-import type { Variants } from "framer-motion";
+import { type Variants } from "framer-motion";
 
 export const AnimationHeadingName: Variants = {
     hidden: { opacity: 0, y: -30 },
@@ -48,6 +48,68 @@ export const borderTextTop: Variants = {
             repeat: Infinity,
             repeatType: 'reverse',
             ease: 'easeInOut'
+        }
+    }
+}
+
+export const borderTextBottom: Variants = {
+    hidden: {
+        scaleX: 0.3,
+        opacity: 0
+    },
+    animate: {
+        scaleX: 1,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: 'easeInOut'
+        }
+    }
+}
+
+export const blockWithText: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 50,
+        scale: 0.95
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 1,
+            ease: 'easeInOut'
+        }
+    }
+}
+
+export const TextInTheBlock1: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 20
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            delay: 0.5
+        }
+    }
+}
+
+export const TextInTheBlock2: Variants = {
+    hidden: {
+        opacity: 0,
+        y: 20
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.7,
+            delay: 0.6
         }
     }
 }

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Home from "../../pages/Home/Home";
+import { About } from "../../pages/about/About";
 
 export function Router() {
     
@@ -8,6 +9,7 @@ export function Router() {
     return (
         <div>
             {activeTab === 'home' && <Home activeTab={activeTab} onChange={setActiveTab} />}
+            {activeTab === 'about' && <About activeTab={activeTab} onChange={setActiveTab} />}
         </div>
     );
 }
