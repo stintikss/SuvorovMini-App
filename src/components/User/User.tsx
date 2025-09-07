@@ -48,7 +48,16 @@ export function UserData({ onLoadingChange }: UserDataProps) {
     const display = showFirst ? 
             `${user?.first_name} ${user?.last_name}`
         :
-            user?.username
+            (
+                <a
+                    href={`https://t.me/${user?.username?.replace(/^@/, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-blue-400 hover:text-blue-300 transition-colors duration-200"
+                >
+                    {user?.username}
+                </a>
+            )
 
     return (
         <div className="flex items-center gap-2">
