@@ -43,7 +43,7 @@ export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
                         >
                             <button
                                 onClick={() => onChange?.(tab.key)}
-                                className={`px-4 py-2 rounded-lg transition-colors max-h-11 ${
+                                className={`px-4 py-2 rounded-lg transition-colors max-h-11 text-xs min-[360px]:text-sm min-[470px]:text-base ${
                                     activeTab === tab.key 
                                         ? 'bg-white text-[#2A2F4A]' 
                                         : 'bg-transparent text-white border border-white/30 hover:bg-white/10'
