@@ -1,22 +1,22 @@
 export type TabBarKey = string;
 
 export type TabBarProps = {
-    activeTab?: TabBarKey
-    onChange?: (tab: TabBarKey) => void
-    onMenuToggle?: (isOpen: boolean) => void
+    activeTab?: TabBarKey;
+    onChange?: (tab: TabBarKey) => void;
+    onMenuToggle?: (isOpen: boolean) => void;
     sizeDevice?: {device: boolean}
 }
 
 export type PageProps = {
-    activeTab?: TabBarKey
-    onChange?: (tab: TabBarKey) => void
+    activeTab?: TabBarKey;
+    onChange?: (tab: TabBarKey) => void;
     menuOpen?: boolean
 }
 
 export type AboutProps = {
-    activeTab?: TabBarKey
-    onChange?: (tab: TabBarKey) => void
-    onMenuToggle?: (isOpen: boolean) => void
+    activeTab?: TabBarKey;
+    onChange?: (tab: TabBarKey) => void;
+    onMenuToggle?: (isOpen: boolean) => void;
     sizeDevice?: {device: boolean}
 
 }
@@ -37,4 +37,23 @@ export type TelegramUser = {
 
 export type UserDataProps = {
     onLoadingChange?: (loading: boolean) => void;
+}
+
+export type Constants = {
+    key: number;
+    description: string;
+    bg: string;
+    color: string
+}
+
+export type SvgTech = {
+    size?: string
+}
+
+export type ConstantsAbout = {
+    nameTech: string;
+    technologies: {
+        name: string;
+        icon: React.ComponentType<{ size?: string }>
+    }[]
 }
