@@ -26,23 +26,22 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
         >
             <motion.div 
                 className="flex flex-col flex-1 w-full h-full"
-                variants={Anim.CommonBlock}
-                initial='hidden'
-                animate='animate'
             >
-                <div className={`flex justify-start
+                <motion.div className={`flex justify-start
                     px-4 h-13 items-end w-full mb-4
                     `}
+                    variants={Anim.CommonBlock}
                 >
                     <UserData onLoadingChange={handleLoadingChange} />
-                </div>
+                </motion.div>
             
-                <div
-                    className="flex flex-1 flex-col w-screen overflow-y-scroll px-12 items-center"
+                <motion.div
+                    className="flex flex-col w-screen overflow-y-scroll px-12 items-center"
                     style={{
                         scrollbarWidth: "none",
                         msOverflowStyle: "none"
                     }}
+                    variants={Anim.CommonBlock}
                 >
                     <style>
                         {`
@@ -130,8 +129,8 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                             ))}
                         </div>
                     </div>
-                </div>
-                <div className="flex flex-col gap-1 justify-end py-2 mt-4 w-full">
+                </motion.div>
+                <div className="flex flex-col gap-1 flex-1 justify-end py-2">
                     <TabBar 
                         activeTab={activeTab} 
                         onChange={onChange}

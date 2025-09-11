@@ -1,5 +1,5 @@
 import type { TabBarProps, TabBarKey } from "../../types/types"
-import { useState } from "react"
+import { act, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import * as Anim from './Animation/Animation'
 
@@ -9,11 +9,11 @@ const tabs: {key: TabBarKey, label: string}[] = [
 ]
 
 const menu: { key: TabBarKey, label: string }[] = [
-    { key: 'MiniApp', label: 'Mini App' },
+    { key: 'services', label: 'Услуги' },
     { key: 'Reviews', label: 'Отзывы' },
     { key: 'Keys', label: 'Кейсы' },
     { key: 'Project', label: 'Проекты' },
-    { key: 'Social', label: 'Соц сети' },
+    { key: 'socialNetworks', label: 'Соц сети' },
     { key: 'Settings', label: 'Настройки' },
 ]
 
@@ -43,7 +43,7 @@ export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
                         >
                             <button
                                 onClick={() => onChange?.(tab.key)}
-                                className={`px-4 py-2 rounded-lg transition-colors max-h-11 text-xs min-[360px]:text-sm min-[470px]:text-base ${
+                                className={`px-4 py-2 rounded-lg transition-colors max-h-11 text-sm min-[360px]:text-base min-[470px]:text-base ${
                                     activeTab === tab.key 
                                         ? 'bg-white text-[#2A2F4A]' 
                                         : 'bg-transparent text-white border border-white/30 hover:bg-white/10'
@@ -66,8 +66,9 @@ export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
                         <motion.button
                             onClick={() => handleMenuToggle(!menuOpen)}
                             className="flex items-center justify-center gap-1
-                                bg-blue-600/70 h-full rounded-lg w-30 text-white font-medium
+                                bg-blue-600/70 h-full rounded-lg w-25 text-white font-medium
                                 hover:bg-blue-600/90 transition-colors duration-200
+                                text-sm min-[360px]:text-base min-[470px]:text-base min-[360px]:30
                             "
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
@@ -104,15 +105,19 @@ export function TabBar({ activeTab, onChange, onMenuToggle }: TabBarProps) {
                                                     onChange?.(tab.key);
                                                     handleMenuToggle(false);
                                                 }}
-                                                className="w-full px-4 py-2.5 text-[#2A2F4A] hover:bg-indigo-100/80 
-                                                    text-center transition-all duration-200 flex justify-center
-                                                    hover:scale-105 active:scale-95 rounded-lg mx-1"
+                                                className={`w-full px-4 py-2.5 text-[#2A2F4A] hover:bg-indigo-100/80 
+                                                    text-center transition-all duration-200 flex items-center
+                                                    hover:scale-105 active:scale-95 rounded-lg mx-1 flex-col
+                                                    ${activeTab === tab.key ? 'bg-gray-500/50 text-gray-900' : ''}
+                                                    `}
                                             >
-                                                {tab.label}
+                                                <span>
+                                                    {tab.label}
+                                                </span>
                                             </button>
 
                                             {idx !== menu.length - 1 && (
-                                                <hr className="mx-3 my-1 border-gray-200/40" />
+                                                <hr className="mx-3 my-1 border-gray-300/100" />
                                             )}
                                         </motion.div>
                                     ))}

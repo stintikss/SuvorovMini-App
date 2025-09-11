@@ -10,7 +10,9 @@ export const CommonBlock: Variants = {
         y: 0,
         transition: {
             ease: 'easeInOut',
-            duration: 1
+            duration: 1,
+            staggerChildren: 0.15,
+            delayChildren: 0.30,
         }
     }
 }

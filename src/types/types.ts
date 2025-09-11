@@ -47,7 +47,8 @@ export type Constants = {
 }
 
 export type SvgTech = {
-    size?: string
+    size?: string;
+    color?: string;
 }
 
 export type ConstantsAbout = {
@@ -56,4 +57,11 @@ export type ConstantsAbout = {
         name: string;
         icon: React.ComponentType<{ size?: string }>
     }[]
+}
+
+export type SocialNetWorks = {
+    key: string;
+    label: string;
+    link?: string;
+    icon: React.ComponentType<{ size?: string }>
 }
