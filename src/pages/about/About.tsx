@@ -7,24 +7,6 @@ import { useState, useEffect } from "react";
 import * as Constants from './component/constants'
 import * as Anim from './Animation/Animation'
 
-// Определяем тип для отзыва
-interface Review {
-  id: string;
-  author: string;
-  text: string;
-  rating: number;
-}
-
-// Выносим логику парсинга за пределы компонента
-const raw = import.meta.env.VITE_REVIEWS_DATA;
-let reviews: Review[] = [];
-
-try {
-  reviews = raw ? JSON.parse(raw) : [];
-} catch (error) {
-  console.warn('Invalid VITE_REVIEWS_DATA JSON:', error);
-  reviews = [];
-}
 
 function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
     const [userLoading, setUserLoading] = useState<boolean>(false);
@@ -37,10 +19,6 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
         console.log(userLoading);
     }, [userLoading]);
 
-    // Логируем отзывы один раз при монтировании
-    useEffect(() => {
-        console.log('Loaded reviews:', reviews);
-    }, []);
 
     return (
         <div
@@ -52,7 +30,7 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                 className="flex flex-col flex-1 w-full h-full"
             >
                 <motion.div className={`flex justify-start
-                    px-4 h-13 items-end w-full mb-4
+                    px-4 h-13 items-end w-full mb-2 py-3
                     `}
                     variants={Anim.CommonBlock}
                 >
@@ -153,22 +131,7 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                             ))}
                         </div>
                     </div>
-
-                    {/* Отображение отзывов */}
-                    {reviews.length > 0 && (
-                        <div className="w-full mt-8">
-                            <h4 className="text-white text-lg font-semibold mb-4">Отзывы:</h4>
-                            <div className="grid gap-4">
-                                {reviews.map((review) => (
-                                    <div key={review.id} className="bg-white/10 p-4 rounded-lg">
-                                        <p className="text-white font-semibold">{review.author}</p>
-                                        <p className="text-gray-200">{review.text}</p>
-                                        <p className="text-yellow-300">Rating: {review.rating}/5</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    )}
+  
                 </motion.div>
                 <div className="flex flex-col gap-1 flex-1 justify-end py-2">
                     <TabBar 

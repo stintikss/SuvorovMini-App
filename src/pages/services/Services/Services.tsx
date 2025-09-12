@@ -1,11 +1,27 @@
 import { TabBar } from "../../../components/TabBar/TabBar";
-import type { TabBarProps } from "../../../types/types";
+import type { TabBarProps, ButtonSecondary } from "../../../types/types";
 import { Beta } from "../../../components/Beta/Beta";
 import * as Component from './component/components'
 import { motion } from "framer-motion";
 import * as Anim from './Animation/Animation'
 
 function Services({ activeTab, onChange, sizeDevice }: TabBarProps) {
+
+    const ButtonClick = (button: ButtonSecondary) => {
+        switch (button.key) {
+            case 'consult':
+                if (button.link) {
+                    window.open(button.link, '_blank', 'noopener,noreferrer');
+                }
+                break;
+            case 'reviews':
+                if (button.change) onChange?.(button.change);
+                break;
+            default:
+                console.warn(`Unknown button key: ${button.key}`);
+        }
+    }
+
     return (
         <div
             className="w-screen max-w-screen h-screen max-h-screen flex flex-col items-center
@@ -93,7 +109,7 @@ function Services({ activeTab, onChange, sizeDevice }: TabBarProps) {
                                     fontFamily: 'Unbounded, sans-serif',
                                 }}  
                                 variants={Anim.BottomButton}
-                                onClick={() => window.open(button.link, '_blank')}
+                                onClick={() => ButtonClick(button)}
                             >
                                 <p>
                                     {button.label.toUpperCase()}

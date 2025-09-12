@@ -49,6 +49,10 @@ export type Constants = {
 export type SvgTech = {
     size?: string;
     color?: string;
+    style?: string;
+    stroke?: string;
+    onChange?: () => void
+    onClick?: () => void
 }
 
 export type ConstantsAbout = {
@@ -70,4 +74,18 @@ export type ButtonSecondary = {
     key: string;
     label: string;
     link?: string;
+    onChange?: (tab: TabBarKey) => void;
+    change?: TabBarKey
+}
+
+export type Review = {
+    id: number;
+    author: string;
+    voice?: boolean;
+    textvoice?: string;
+    text: string;
+}
+
+export type CloseModal = {
+    onClose: () => void
 }
