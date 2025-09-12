@@ -175,13 +175,13 @@ function Reviews({ activeTab, onChange, sizeDevice }: TabBarProps) {
                                                     ? 'linear-gradient(45deg, rgba(139,92,246,0.2), rgba(168,85,247,0.1))' 
                                                     : 'rgba(255,255,255,0.15)'
                                             }}
+                                            onClick={() => proccesingVoiseMessage(review.id)}
                                         >
                                             <div>
                                                 <ArrowBack style='rotate-180' stroke='white' size='18'/>
                                             </div>
                                             <div
                                                 className="text-white text-[15px]"
-                                                onClick={() => proccesingVoiseMessage(review.id)}
                                             >
                                                 A
                                             </div>
