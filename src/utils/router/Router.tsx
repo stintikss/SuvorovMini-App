@@ -3,7 +3,7 @@ import Home from "../../pages/Home/Home";
 import About from "../../pages/about/About";
 import Stack from "../../pages/Stack/Stack";
 import Social from "../../pages/socialNetworks/Social";
-import Services from "../../pages/services/Services";
+import Services from "../../pages/services/Services/Services";
 import { useDevice } from "./Device";
 
 export function Router() {

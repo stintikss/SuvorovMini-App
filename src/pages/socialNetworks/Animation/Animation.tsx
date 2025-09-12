@@ -1,4 +1,4 @@
-import { animate, type Variants } from "framer-motion";
+import { type Variants } from "framer-motion";
 
 export const CommonBlockExText: Variants = {
     hidden: {
@@ -19,13 +19,13 @@ export const CommonBlockExText: Variants = {
 
 export const Text: Variants = {
     hidden: {
-        opacity: 0
+        opacity: 0,
     },
     animate: {
         opacity: 1,
         transition: {
             ease: 'easeInOut',
-            duration: 1,
+            duration: 0.5,
         }
     }
 }

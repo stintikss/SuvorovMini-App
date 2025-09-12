@@ -65,3 +65,9 @@ export type SocialNetWorks = {
     link?: string;
     icon: React.ComponentType<{ size?: string }>
 }
+
+export type ButtonSecondary = {
+    key: string;
+    label: string;
+    link?: string;
+}
