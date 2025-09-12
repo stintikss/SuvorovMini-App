@@ -1,10 +1,9 @@
 import { TabBar } from "../../../components/TabBar/TabBar";
 import type { TabBarProps, Review } from "../../../types/types";
 import { Beta } from "../../../components/Beta/Beta";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 // import * as Component from './component/components'
-import { motion } from "framer-motion";
-import { ArrowBack, Quest } from "./component/iconReviews/SvgReviews";
+import { ArrowBack } from "./component/iconReviews/SvgReviews";
 // import * as Anim from './Animation/Animation'
 
 const raw = import.meta.env.VITE_REVIEWS_DATA
