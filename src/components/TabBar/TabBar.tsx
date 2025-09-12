@@ -12,7 +12,6 @@ const menu: { key: TabBarKey, label: string }[] = [
     { key: 'services', label: 'Услуги' },
     { key: 'Reviews', label: 'Отзывы' },
     // { key: 'Keys', label: 'Кейсы' },
-    { key: 'Project', label: 'Проекты' },
     { key: 'socialNetworks', label: 'Соц сети' },
     // { key: 'Settings', label: 'Настройки' },
 ]
