@@ -32,7 +32,9 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                 <motion.div className={`flex justify-start
                     px-4 h-13 items-end w-full mb-2 py-3
                     `}
-                    variants={Anim.CommonBlock}
+                    variants={Anim.NameBlock}
+                    initial='hidden'
+                    animate='animate'
                 >
                     <UserData onLoadingChange={handleLoadingChange} />
                 </motion.div>
@@ -55,7 +57,7 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                     <div
                         className="flex flex-col items-center w-full mt-4 gap-8 mb-10"
                     >
-                        <img 
+                        <motion.img 
                             src="/Channel.jpg" 
                             alt="" 
                             className="object-contain w-30 h-auto 
@@ -65,37 +67,73 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                             style={{ imageRendering: "auto" }}
                             loading="lazy"
                             draggable={false}
+                            variants={Anim.Avatar}
+                            initial='hidden'
+                            animate='animate'
                         />
                         <div
                             className="flex flex-col gap-5"
                         >
-                            <h3
+                            <motion.h3
                                 style={{ fontFamily: 'Unbounded, sans-serif' }}
                                 className="text-center md:inline-block 
                                     text-violet-400 text-2xl font-semibold
                                     text-shadow-[2px_2px_4px_rgba(26,11,46,0.8)]
                                 "
+                                variants={Anim.TextAvatar}
+                                initial='hidden'
+                                animate='animate'
                             >
                                 <span className="block md:inline">DEVTRIP</span>
                                 <span className="block md:inline md:ml-2">FRONTEND</span>
-                            </h3>
+                            </motion.h3>
                             
-                            <div className="flex flex-wrap gap-2 w-full justify-center px-5">
+                            <motion.div
+                                className="flex flex-wrap gap-2 w-full justify-center px-5"
+                                initial="hidden"
+                                animate="show"
+                                variants={{
+                                    hidden: {},
+                                    show: {
+                                        transition: {
+                                            staggerChildren: 0.1,
+                                            delayChildren: 1.3
+                                        }
+                                    }
+                                }}
+                            >
                                 {Constants.AboutMeHeader.map((item) => (
-                                    <span
+                                    <motion.span
                                         key={item.key}
                                         className='rounded-xl px-2 py-0.5 font-semibold text-sm'
                                         style={{background: item.bg, color: item.color}}
+                                        variants={{
+                                            hidden: { opacity: 0, y: 20 },
+                                            show: { 
+                                                opacity: 1, 
+                                                y: 0, 
+                                                transition: { 
+                                                    type: 'spring', 
+                                                    stiffness: 120, 
+                                                    damping: 14, 
+                                                    mass: 0.8 
+                                                } 
+                                            }
+                                        }}
                                     >
                                         {item.description}
-                                    </span>
+                                    </motion.span>
                                 ))}
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
 
-                    <div className="w-full flex flex-col items-center justify-center gap-4 mb-8">
-                        <button
+                    <motion.div className="w-full flex flex-col items-center justify-center gap-4 mb-8"
+                        variants={Anim.Button}
+                        initial='hidden'
+                        animate='animate'
+                    >
+                        <motion.button
                             style={{ 
                                 background: 'linear-gradient(135deg,#8b5cf6,#a855f7)', 
                                 fontFamily: 'Unbounded, sans-serif',
@@ -107,12 +145,14 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                             mb-2
                             "
                             onClick={() => onChange?.('stack')}
+                            variants={Anim.Button}
+                            whileHover={{ y: -2, background: 'linear-gradient(135deg,#B85CF6,#984DBE)' }}
                         >
                             МОЙ СТЕК
-                        </button>
+                        </motion.button>
                         <div className="w-full flex flex-col items-center gap-3">
                             {Constants.ButtonBottom.map((button) => (
-                                <button
+                                <motion.button
                                     key={button.key}
                                     onClick={() => onChange?.(button.change)}
                                     style={{ 
@@ -125,12 +165,14 @@ function About({ activeTab, onChange, sizeDevice }: TabBarProps) {
                                     shadow-[1px_2px_8px_#312e81] max-w-64 min-w-56
                                     text-white font-medium text-base
                                     "
+                                    variants={Anim.Button}
+                                    whileHover={{ y: -2, background: '#817CDF' }}
                                 >
                                     {button.title}
-                                </button>
+                                </motion.button>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
   
                 </motion.div>
                 <div className="flex flex-col gap-1 flex-1 justify-end py-2">

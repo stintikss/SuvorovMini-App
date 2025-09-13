@@ -77,7 +77,7 @@ function Home({ activeTab, onChange, sizeDevice }: TabBarProps) {
             <motion.div 
                 className={`mt-8 mb-6 px-6 py-4 bg-white/10 rounded-xl shadow-lg 
                     flex flex-1 flex-col items-center justify-center
-                    max-w-81 mx-auto md:max-w-100 relative max-h-50
+                    max-w-81 mx-auto md:max-w-100 relative max-h-50 
                 `}
                 variants={Anim.blockWithText}
                 initial='hidden'

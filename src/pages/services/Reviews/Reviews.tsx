@@ -17,7 +17,7 @@ try {
 }
 
 const buttonStyles = {
-    className: "w-[30px] h-[30px] flex items-center justify-center rounded-xl",
+    className: "w-[30px] h-[30px] flex items-center justify-center rounded-xl cursor-pointer",
     style: { 
         background: 'linear-gradient(135deg,rgba(143, 88, 210, 0.04),rgba(122, 61, 183, 0.5),rgba(168, 74, 166, 0.28))',
         opacity: 0.9
@@ -165,7 +165,7 @@ function Reviews({ activeTab, onChange, sizeDevice }: TabBarProps) {
                                             Голосовой отзыв
                                         </p>
                                         <div
-                                            className={`bg-white/15 w-12 h-7 flex items-center rounded-md justify-center gap-1 transition-all duration-500 ${
+                                            className={`bg-white/15 w-12 h-7 flex items-center rounded-md justify-center gap-1 transition-all duration-500 cursor-pointer ${
                                                 loadingReviews.has(review.id)
                                                     ? 'border-2 border-violet-400 shadow-[0_0_20px_rgba(139,92,246,0.5)]' 
                                                     : 'border-2 border-transparent'

@@ -73,10 +73,11 @@ function Stack({ activeTab, onChange, sizeDevice }: TabBarProps) {
                                         key={techIndex}
                                         className="w-27 h-26 border-2 border-[#60a5fa] rounded-xl
                                             flex items-center justify-center flex-col gap-2
-                                            px-2
+                                            px-2 transition-all duration-300 ease-in-out
                                             bg-gradient-to-br from-[rgba(59,130,246,0.15)] to-[rgba(96,165,250,0.15)]
                                         "
                                         variants={Anim.CommonBlock}
+                                        whileHover={{ scale: 1.05, boxShadow: '0 8px 24px 0 rgba(59,130,246,0.18)' }}
                                     >
                                         <div>
                                             <tech.icon />
